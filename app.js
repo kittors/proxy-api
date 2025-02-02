@@ -13,7 +13,7 @@ app.all('*', async (req, res) => {
     if (pathname === '/' || pathname === '/index.html') {
       return res
         .type('html')
-        .send('Proxy is Running！Details：https://github.com/tech-shrimp/deno-api-proxy');
+        .send('Proxy is Running！Details：https://github.com/kittors/proxy-api');
     }
 
     // 构建目标 URL
