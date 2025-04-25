@@ -1,0 +1,23 @@
+# docker-compose.yml
+
+version: '3.8' # Specify docker-compose version
+
+services:
+  proxy-api:
+    build: . # Build the image from the Dockerfile in the current directory
+    container_name: proxy_api_service # Assign a specific name to the container (optional)
+    env_file:
+      - .env # Load environment variables from the .env file
+    ports:
+      # Map host port to container port using variables from .env
+      # Format: "${HOST_PORT}:${APP_PORT}"
+      - "${HOST_PORT}:${APP_PORT}"
+    restart: unless-stopped # Restart policy
+    # Optional: Define a network for better isolation if you add more services later
+    # networks:
+    #   - proxy-net
+
+# Optional: Define the network if used above
+# networks:
+#   proxy-net:
+#     driver: bridge
